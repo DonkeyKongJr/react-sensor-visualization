@@ -4,6 +4,7 @@ import Button from 'muicss/lib/react/button';
 import './SensorData.css'
 
 class SensorData extends React.Component{
+    baseUrl = 'http://192.168.1.43:3000';
     constructor(props){
     super(props);
     this.state = {
@@ -35,7 +36,7 @@ class SensorData extends React.Component{
 
     loadDataFromRaspberryPi(){
         console.log('Loading new Sensor Data started...');
-        axios.post(`http://192.168.1.43:3000/sensordata`)
+        axios.post(`${this.baseUrl}/sensordata`)
           .then(res => {
             const sensordata = res.data;
             this.setState({
